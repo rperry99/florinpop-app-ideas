@@ -1,0 +1,77 @@
+/* 
+background: #695858;
+accent: #cfffe5;
+dark accent: #b6c8a9;
+link highlight: #c8ead3;
+*/
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+}
+header {
+  height: 75px;
+  background: #695858;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 50px;
+}
+header a {
+  color: white;
+  text-decoration: none;
+  font-size: 2rem;
+  transition: color 200ms ease-in-out;
+}
+header a:hover {
+  color: #b6c8a9;
+}
+header .index-links {
+  width: 200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.index-content {
+  width: 80%;
+  margin: 0 auto;
+}
+.index-content p {
+  font-size: 2rem;
+  color: #695858;
+  margin: 50px 0;
+}
+.index-content p a {
+  color: #b6c8a9;
+  text-decoration: none;
+  transition: color 200ms ease-in-out;
+}
+.index-content p a:hover {
+  color: green;
+}
+.index-content .projects {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.index-content .projects a {
+  border-radius: 10px;
+  padding: 10px 20px;
+  text-decoration: none;
+}
+.beginner {
+  border: solid 3px green;
+  color: green;
+}
+.intermediate {
+  border: solid 3px orange;
+  color: orange;
+}
+.advanced {
+  border: solid 3px red;
+  color: red;
+}
