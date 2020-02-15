@@ -1,16 +1,3 @@
-.container {
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-  height: calc(100vh - 50px);
-}
-.container p {
-  margin-bottom: 50px;
-  font-size: 2rem;
-}
 .converter-container {
   display: grid;
   grid-template-areas:
