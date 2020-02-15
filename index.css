@@ -11,6 +11,9 @@ link highlight: #c8ead3;
   box-sizing: border-box;
   font-family: "Roboto", Arial, Helvetica, sans-serif;
 }
+body {
+  overflow: hidden;
+}
 .container {
   width: 50%;
   display: flex;
@@ -100,4 +103,16 @@ header .index-links {
 .advanced:hover {
   background: red;
   color: white;
+}
+button {
+  grid-area: button;
+  background: #695858;
+  color: white;
+  border: none;
+  outline: none;
+  padding: 10px 20px;
+}
+button:hover {
+  cursor: pointer;
+  background: #7e6969;
 }

@@ -14,17 +14,6 @@
   justify-content: center;
   align-items: center;
 }
-button {
-  grid-area: button;
-  background: #695858;
-  color: white;
-  border: none;
-  outline: none;
-}
-button:hover {
-  cursor: pointer;
-  background: #7e6969;
-}
 input {
   grid-area: input;
   padding-left: 20px;
