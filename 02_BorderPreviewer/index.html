@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Border Radius Previewer</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="../index.css" />
+    <link rel="stylesheet" href="borderPreviewer.css" />
+  </head>
+  <body>
+    <header>
+      <a href="../index.html">Russ Perry</a>
+      <div class="index-links">
+        <a href="https://twitter.com/russp999"><i class="fa fa-twitter"></i></a>
+        <a href="https://github.com/rperry99"><i class="fa fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/russ-perry-22b638a8/"
+          ><i class="fa fa-linkedin"></i
+        ></a>
+      </div>
+    </header>
+    <div class="container">
+      <p>Enter in the binary for a number and get the number as the output.</p>
+      <div class="content">
+        <button id="reset" onclick="resetBorder()">Reset Border</button>
+        <div id="playground">
+          This is your border playground!
+        </div>
+        <div class="playground-form">
+          <div>
+            <label for="radius-tl">Border Top Left Radius:</label>
+            <input
+              type="number"
+              id="radius-tl"
+              value="0"
+              onchange="updateCSSOutput()"
+            />
+          </div>
+          <div>
+            <label for="radius-tr">Border Top Right Radius:</label>
+            <input
+              type="number"
+              id="radius-tr"
+              value="0"
+              onchange="updateCSSOutput()"
+            />
+          </div>
+          <div>
+            <label for="radius-bl">Border Bottom Left Radius:</label>
+            <input
+              type="number"
+              id="radius-bl"
+              value="0"
+              onchange="updateCSSOutput()"
+            />
+          </div>
+          <div>
+            <label for="radius-br">Border Bottom Right Radius:</label>
+            <input
+              type="number"
+              id="radius-br"
+              value="0"
+              onchange="updateCSSOutput()"
+            />
+          </div>
+          <div>
+            <label for="width">Border Width:</label>
+            <input
+              type="number"
+              id="width"
+              value="1"
+              onchange="updateCSSOutput()"
+            />
+          </div>
+          <div>
+            <label for="color">Border Color:</label>
+            <input
+              type="color"
+              id="color"
+              value="#000000"
+              onchange="updateCSSOutput()"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="output-section">
+        <input type="text" id="output" readonly />
+        <button onclick="copy()">Copy CSS</button>
+      </div>
+    </div>
+    <script src="borderPreviewer.js"></script>
+  </body>
+</html>
