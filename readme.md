@@ -7,3 +7,7 @@
 
 1. [Bin2Dec](https://rperry99.github.io/florinpop-app-ideas/01_Bin2Dec/index.html) - Binary to Decimal converter
 2. [Border Radius Previewer](https://rperry99.github.io/florinpop-app-ideas/02_BorderPreviewer/index.html) - Lets the user visually alter a border and copy the CSS for later use.
+
+## List of things I have learned
+
+- How to have a button on the DOM copy text so the user can paste it - [Border Radius Previewer](https://rperry99.github.io/florinpop-app-ideas/02_BorderPreviewer/index.html)
