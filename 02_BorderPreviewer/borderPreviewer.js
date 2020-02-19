@@ -9,12 +9,12 @@ const width = document.getElementById("width");
 const color = document.getElementById("color");
 
 let userWidth = width.value;
-let userRadiusTL = radiusTL.value;
-let userRadiusTR = radiusTR.value;
-let userRadiusBL = radiusBL.value;
-let userRadiusBR = radiusBR.value;
+// let userRadiusTL = radiusTL.value;
+// let userRadiusTR = radiusTR.value;
+// let userRadiusBL = radiusBL.value;
+// let userRadiusBR = radiusBR.value;
 let userColor = color.value;
-updateCSSOutput();
+// updateCSSOutput();
 
 // Reset border button
 function resetBorder() {
@@ -52,3 +52,23 @@ function copy() {
   document.execCommand("copy");
   alert("Copied the text: " + output.value);
 }
+
+$(function() {
+  $("#slider-range").slider({
+    orientation: "vertical",
+    range: true,
+    min: 0,
+    max: 100,
+    values: [0, 100],
+    slide: function(event, ui) {
+      playground.style.borderRadius = `20% 20% 20% 20% / 0% ${(ui.values[1] -
+        100) *
+        -1}% ${ui.values[0]}% 0%`;
+      output.value = `.container { border: solid 0px black; border-radius: 20% 20% 20% 20% / 0% ${(ui
+        .values[1] -
+        100) *
+        -1}% ${ui.values[0]}% 0%; }`;
+      console.log("Value0", ui.values[0], "Value1", ui.values[1]);
+    }
+  });
+});

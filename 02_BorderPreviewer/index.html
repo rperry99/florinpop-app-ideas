@@ -8,6 +8,10 @@
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
     />
+    <link
+      rel="stylesheet"
+      href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+    />
     <link rel="stylesheet" href="../index.css" />
     <link rel="stylesheet" href="borderPreviewer.css" />
   </head>
@@ -23,14 +27,16 @@
       </div>
     </header>
     <div class="container">
-      <p>Enter in the binary for a number and get the number as the output.</p>
+      <p>Have fun messing around with the border of the rectangle!</p>
       <div class="content">
         <button id="reset" onclick="resetBorder()">Reset Border</button>
         <div id="playground">
           This is your border playground!
         </div>
+
+        <div id="slider-range" style="height:200px;"></div>
         <div class="playground-form">
-          <div>
+          <!-- <div>
             <label for="radius-tl">Border Top Left Radius:</label>
             <input
               type="number"
@@ -65,7 +71,7 @@
               value="0"
               onchange="updateCSSOutput()"
             />
-          </div>
+          </div> -->
           <div>
             <label for="width">Border Width:</label>
             <input
@@ -91,6 +97,16 @@
         <button onclick="copy()">Copy CSS</button>
       </div>
     </div>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+      integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+      crossorigin="anonymous"
+    ></script>
     <script src="borderPreviewer.js"></script>
   </body>
 </html>
