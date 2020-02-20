@@ -13,6 +13,7 @@ body {
   justify-content: space-evenly;
   align-items: center;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+  position: relative;
 }
 #output {
   height: 75px;
@@ -56,4 +57,30 @@ input {
 }
 .output-section button {
   height: 75px;
+}
+
+#slider-range-right,
+#slider-range-left {
+  height: 200px;
+  position: absolute;
+}
+
+#slider-range-right {
+  right: -50px;
+}
+#slider-range-left {
+  left: -50px;
+}
+
+#slider-range-top,
+#slider-range-bottom {
+  width: 400px;
+  position: absolute;
+}
+
+#slider-range-top {
+  top: -50px;
+}
+#slider-range-bottom {
+  bottom: -50px;
 }

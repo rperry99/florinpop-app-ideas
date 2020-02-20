@@ -1,47 +1,72 @@
 const playground = document.getElementById("playground");
 const reset = document.getElementById("reset");
 const output = document.getElementById("output");
-const radiusBL = document.getElementById("radius-bl");
-const radiusBR = document.getElementById("radius-br");
-const radiusTL = document.getElementById("radius-tl");
-const radiusTR = document.getElementById("radius-tr");
 const width = document.getElementById("width");
 const color = document.getElementById("color");
 
 let userWidth = width.value;
-// let userRadiusTL = radiusTL.value;
-// let userRadiusTR = radiusTR.value;
-// let userRadiusBL = radiusBL.value;
-// let userRadiusBR = radiusBR.value;
 let userColor = color.value;
-// updateCSSOutput();
+let userTopX = 20;
+let userTopY = 20;
+let userRightX = 20;
+let userRightY = 20;
+let userBottomX = 20;
+let userBottomY = 20;
+let userLeftX = 20;
+let userLeftY = 20;
+updateBorder(
+  userWidth,
+  userColor,
+  userTopX,
+  userTopY,
+  userRightX,
+  userRightY,
+  userBottomX,
+  userBottomY,
+  userLeftX,
+  userLeftY
+);
+
+color.addEventListener("change", function() {
+  userColor = color.value;
+  updateBorder(
+    userWidth,
+    userColor,
+    userTopX,
+    userTopY,
+    userRightX,
+    userRightY,
+    userBottomX,
+    userBottomY,
+    userLeftX,
+    userLeftY
+  );
+});
+
+width.addEventListener("change", function() {
+  userWidth = width.value;
+  updateBorder(
+    userWidth,
+    userColor,
+    userTopX,
+    userTopY,
+    userRightX,
+    userRightY,
+    userBottomX,
+    userBottomY,
+    userLeftX,
+    userLeftY
+  );
+});
 
 // Reset border button
 function resetBorder() {
   playground.style.borderWidth = "1px";
-  playground.style.borderRadius = "0";
+  playground.style.borderRadius = "20%";
   playground.style.borderColor = "black";
   color.value = "#000000";
   width.value = 1;
-  radiusTL.value = 0;
-  radiusBL.value = 0;
-  radiusTR.value = 0;
-  radiusBR.value = 0;
-  output.value = `.container { border: solid 1px #000000; border-radius: 0px; }`;
-}
-
-// Add CSS to output
-function updateCSSOutput() {
-  let radTL = radiusTL.value;
-  let radTR = radiusTR.value;
-  let radBL = radiusBL.value;
-  let radBR = radiusBR.value;
-  let col = color.value;
-  let wid = width.value;
-  output.value = `.container { border: solid ${wid}px ${col}; border-radius: ${radTL}px ${radTR}px ${radBR}px ${radBL}px; }`;
-  playground.style.borderRadius = `${radTL}px ${radTR}px ${radBR}px ${radBL}px`;
-  playground.style.borderColor = col;
-  playground.style.borderWidth = `${wid}px`;
+  output.value = `.container { border: solid black 1px; border-radius: 20% 20% 20% 20% / 20% 20% 20% 20%;}`;
 }
 
 // Let the user copy the output CSS
@@ -54,21 +79,120 @@ function copy() {
 }
 
 $(function() {
-  $("#slider-range").slider({
+  $("#slider-range-right").slider({
     orientation: "vertical",
     range: true,
     min: 0,
     max: 100,
-    values: [0, 100],
+    values: [20, 80],
     slide: function(event, ui) {
-      playground.style.borderRadius = `20% 20% 20% 20% / 0% ${(ui.values[1] -
-        100) *
-        -1}% ${ui.values[0]}% 0%`;
-      output.value = `.container { border: solid 0px black; border-radius: 20% 20% 20% 20% / 0% ${(ui
-        .values[1] -
-        100) *
-        -1}% ${ui.values[0]}% 0%; }`;
-      console.log("Value0", ui.values[0], "Value1", ui.values[1]);
+      userRightX = (ui.values[1] - 100) * -1;
+      userRightY = ui.values[0];
+      updateBorder(
+        userWidth,
+        userColor,
+        userTopX,
+        userTopY,
+        userBottomX,
+        userBottomY,
+        userLeftX,
+        userRightX,
+        userRightY,
+        userLeftY
+      );
     }
   });
+  $("#slider-range-left").slider({
+    orientation: "vertical",
+    range: true,
+    min: 0,
+    max: 100,
+    values: [20, 80],
+    slide: function(event, ui) {
+      userLeftX = (ui.values[1] - 100) * -1;
+      userLeftY = ui.values[0];
+      updateBorder(
+        userWidth,
+        userColor,
+        userTopX,
+        userTopY,
+        userBottomX,
+        userBottomY,
+        userLeftX,
+        userRightX,
+        userRightY,
+        userLeftY
+      );
+    }
+  });
+  $("#slider-range-top").slider({
+    orientation: "horizontal",
+    range: true,
+    min: 0,
+    max: 100,
+    values: [20, 80],
+    slide: function(event, ui) {
+      userTopY = (ui.values[1] - 100) * -1;
+      userTopX = ui.values[0];
+      updateBorder(
+        userWidth,
+        userColor,
+        userTopX,
+        userTopY,
+        userBottomX,
+        userBottomY,
+        userLeftX,
+        userRightX,
+        userRightY,
+        userLeftY
+      );
+    }
+  });
+  $("#slider-range-bottom").slider({
+    orientation: "horizontal",
+    range: true,
+    min: 0,
+    max: 100,
+    values: [20, 80],
+    slide: function(event, ui) {
+      userBottomX = (ui.values[1] - 100) * -1;
+      userBottomY = ui.values[0];
+      updateBorder(
+        userWidth,
+        userColor,
+        userTopX,
+        userTopY,
+        userBottomX,
+        userBottomY,
+        userLeftX,
+        userRightX,
+        userRightY,
+        userLeftY
+      );
+    }
+  });
+  $("#reset").click(() => {
+    $("#slider-range-left").slider({ values: [20, 80] });
+    $("#slider-range-right").slider({ values: [20, 80] });
+    $("#slider-range-top").slider({ values: [20, 80] });
+    $("#slider-range-bottom").slider({ values: [20, 80] });
+  });
 });
+
+function updateBorder(
+  width,
+  color,
+  pos1,
+  pos2,
+  pos3,
+  pos4,
+  pos5,
+  pos6,
+  pos7,
+  pos8
+) {
+  playground.style.borderRadius = `${pos1}% ${pos2}% ${pos3}% ${pos4}% / ${pos5}% ${pos6}% ${pos7}% ${pos8}%`;
+  playground.style.borderColor = color;
+  playground.style.borderWidth = `${width}px`;
+  output.value = `.container { border: solid ${color} ${width}px; border-radius: ${pos1}% ${pos2}% ${pos3}% ${pos4}% / ${pos5}% ${pos6}% ${pos7}% ${pos8}%;} `;
+}

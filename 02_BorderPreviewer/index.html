@@ -32,63 +32,20 @@
         <button id="reset" onclick="resetBorder()">Reset Border</button>
         <div id="playground">
           This is your border playground!
+          <div id="slider-range-right"></div>
+          <div id="slider-range-left"></div>
+          <div id="slider-range-top"></div>
+          <div id="slider-range-bottom"></div>
         </div>
 
-        <div id="slider-range" style="height:200px;"></div>
         <div class="playground-form">
-          <!-- <div>
-            <label for="radius-tl">Border Top Left Radius:</label>
-            <input
-              type="number"
-              id="radius-tl"
-              value="0"
-              onchange="updateCSSOutput()"
-            />
-          </div>
-          <div>
-            <label for="radius-tr">Border Top Right Radius:</label>
-            <input
-              type="number"
-              id="radius-tr"
-              value="0"
-              onchange="updateCSSOutput()"
-            />
-          </div>
-          <div>
-            <label for="radius-bl">Border Bottom Left Radius:</label>
-            <input
-              type="number"
-              id="radius-bl"
-              value="0"
-              onchange="updateCSSOutput()"
-            />
-          </div>
-          <div>
-            <label for="radius-br">Border Bottom Right Radius:</label>
-            <input
-              type="number"
-              id="radius-br"
-              value="0"
-              onchange="updateCSSOutput()"
-            />
-          </div> -->
           <div>
             <label for="width">Border Width:</label>
-            <input
-              type="number"
-              id="width"
-              value="1"
-              onchange="updateCSSOutput()"
-            />
+            <input type="number" id="width" value="1" />
           </div>
           <div>
             <label for="color">Border Color:</label>
-            <input
-              type="color"
-              id="color"
-              value="#000000"
-              onchange="updateCSSOutput()"
-            />
+            <input type="color" id="color" value="#000000" />
           </div>
         </div>
       </div>
