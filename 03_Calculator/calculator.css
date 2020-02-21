@@ -1,0 +1,115 @@
+body {
+  overflow: hidden;
+}
+.container {
+  width: 100%;
+  height: calc(100vh - 75px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#calculator {
+  height: 400px;
+  width: 300px;
+  border: solid 5px #695858;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+}
+#screen {
+  width: 100%;
+  height: 75px;
+  border: none;
+  outline: none;
+  background: #a3ae9d;
+  font-family: monospace;
+  text-align: center;
+  font-size: 4rem;
+}
+#buttons {
+  display: grid;
+  grid-template-areas:
+    "clear inverse clearall divide"
+    "seven eight nine product"
+    "four five six minus"
+    "one two three plus"
+    "zeroNum zeroNum point equal";
+  height: calc(100% - 75px);
+}
+#buttons div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid 1px #695858;
+  font-size: 2rem;
+  transition: all 150ms ease-in-out;
+}
+#buttons div:hover {
+  background: #c8ead3;
+  cursor: pointer;
+}
+#one {
+  grid-area: one;
+}
+#two {
+  grid-area: two;
+}
+#three {
+  grid-area: three;
+}
+#four {
+  grid-area: four;
+}
+#five {
+  grid-area: five;
+}
+#six {
+  grid-area: six;
+}
+#seven {
+  grid-area: seven;
+}
+#eight {
+  grid-area: eight;
+}
+#nine {
+  grid-area: nine;
+}
+#zeroNum {
+  grid-area: zeroNum;
+}
+#point {
+  grid-area: point;
+}
+#plus {
+  grid-area: plus;
+  background: #cfffe5;
+}
+#minus {
+  grid-area: minus;
+  background: #cfffe5;
+}
+#divide {
+  grid-area: divide;
+  background: #cfffe5;
+}
+#product {
+  grid-area: product;
+  background: #cfffe5;
+}
+#equal {
+  grid-area: equal;
+  background: #b6c8a9;
+}
+#inverse {
+  grid-area: inverse;
+}
+#clear {
+  grid-area: clear;
+  font-size: 1.25rem !important;
+  font-weight: bold;
+}
+#clearall {
+  grid-area: clearall;
+  font-size: 1.25rem !important;
+  font-weight: bold;
+}
