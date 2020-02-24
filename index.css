@@ -104,6 +104,17 @@ header .index-links {
   background: red;
   color: white;
 }
+.wip {
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(255, 166, 0, 0.37),
+    rgba(255, 166, 0, 0.37) 20px,
+    rgba(0, 0, 0, 0.37) 20px,
+    rgba(0, 0, 0, 0.37) 25px
+  );
+  font-weight: bolder;
+  color: black;
+}
 button {
   grid-area: button;
   background: #695858;
