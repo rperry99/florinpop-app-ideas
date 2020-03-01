@@ -1,16 +1,20 @@
-let action;
-let currentScreen = "";
-let number;
-let result = 0;
-
 $(document).ready(function() {
+  let action;
+  let currentScreen = "";
+  let number;
+  let result;
+  let firstNumber = true;
+
+  //Each time a number button is pressed
   $(".num").click(function() {
     if (currentScreen.length < 8) {
       currentScreen += $(this).html();
+      number = parseFloat(currentScreen);
       $("#screen").val(currentScreen);
     }
   });
 
+  //Add a decimal
   $("#point").click(() => {
     if (!currentScreen.includes(".")) {
       currentScreen += ".";
@@ -18,20 +22,31 @@ $(document).ready(function() {
     }
   });
 
-  $("#plus").click(() => {
-    action = "plus";
-    number = parseFloat(currentScreen);
-    currentScreen = "";
-    calculate();
+  // When an operator button is pressed
+  $(".operator").click(function() {
+    let operator = $(this).attr("id");
+    if (firstNumber === true) {
+      result = number;
+      currentScreen = "";
+      $("#screen").val(result);
+      firstNumber = false;
+    } else {
+      switch (operator) {
+        case "plus":
+          result += number;
+          currentScreen = "";
+          $("#screen").val(result);
+          break;
+        case "minus":
+          result -= number;
+          currentScreen = "";
+          $("#screen").val(result);
+          break;
+        // case 'divide':
+        // case 'product':
+      }
+    }
   });
-  $("#minus").click(() => {
-    action = "minus";
-    number = parseFloat(currentScreen);
-    currentScreen = "";
-    calculate();
-  });
-  $("#divide").click(() => {});
-  $("#product").click(() => {});
 
   $("#equal").click(() => {});
 
@@ -51,6 +66,8 @@ $(document).ready(function() {
   $("#clearall").click(() => {
     currentScreen = "";
     number = 0;
+    result = undefined;
+    firstNumber = true;
     $("#screen").val(currentScreen);
   });
 });
