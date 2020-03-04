@@ -1,15 +1,14 @@
 $(document).ready(function() {
-  let action;
   let currentScreen = "";
-  let number;
-  let result;
-  let firstNumber = true;
+  let pastOperator;
+  let currentOperator;
+  let total;
+  let firstOperation = true;
 
   //Each time a number button is pressed
   $(".num").click(function() {
     if (currentScreen.length < 8) {
       currentScreen += $(this).html();
-      number = parseFloat(currentScreen);
       $("#screen").val(currentScreen);
     }
   });
@@ -24,31 +23,64 @@ $(document).ready(function() {
 
   // When an operator button is pressed
   $(".operator").click(function() {
-    let operator = $(this).attr("id");
-    if (firstNumber === true) {
-      result = number;
+    number = $("screen").val();
+    if (firstOperation) {
+      currentOperator = $(this).attr("id");
+      firstOperation = false;
+      total = parseFloat(currentScreen);
       currentScreen = "";
-      $("#screen").val(result);
-      firstNumber = false;
     } else {
-      switch (operator) {
+      pastOperator = currentOperator;
+      switch (pastOperator) {
         case "plus":
-          result += number;
+          total += parseFloat(currentScreen);
           currentScreen = "";
-          $("#screen").val(result);
           break;
         case "minus":
-          result -= number;
+          total -= parseFloat(currentScreen);
           currentScreen = "";
-          $("#screen").val(result);
           break;
-        // case 'divide':
-        // case 'product':
+        case "divide":
+          total /= parseFloat(currentScreen);
+          currentScreen = "";
+          break;
+        case "product":
+          total *= parseFloat(currentScreen);
+          currentScreen = "";
+          break;
       }
+      $("#screen").val(total);
+      currentOperator = $(this).attr("id");
     }
   });
 
-  $("#equal").click(() => {});
+  $("#equal").click(() => {
+    switch (currentOperator) {
+      case "plus":
+        total += parseFloat(currentScreen);
+        currentScreen = "";
+        break;
+      case "minus":
+        total -= parseFloat(currentScreen);
+        currentScreen = "";
+        break;
+      case "divide":
+        total /= parseFloat(currentScreen);
+        currentScreen = "";
+        break;
+      case "product":
+        total *= parseFloat(currentScreen);
+        currentScreen = "";
+        break;
+    }
+    $("#screen").val(total);
+    currentScreen = "";
+    number = 0;
+    total = "";
+    firstOperation = true;
+    pastOperator = "";
+    currentOperator = "";
+  });
 
   $("#inverse").click(() => {
     if (currentScreen != "") {
@@ -66,19 +98,21 @@ $(document).ready(function() {
   $("#clearall").click(() => {
     currentScreen = "";
     number = 0;
-    result = undefined;
-    firstNumber = true;
+    total = "";
+    firstOperation = true;
+    pastOperator = "";
+    currentOperator = "";
     $("#screen").val(currentScreen);
   });
 });
 
-function calculate() {
-  if (action === "plus") {
-    result += number;
-    action = "";
-  } else if (action === "minus") {
-    result -= number;
-    action = "";
+function calculate(op) {
+  number = parseFloat(currentScreen);
+  switch (op) {
+    case "plus":
+      total += number;
+      break;
   }
+
   $("#screen").val(result);
 }
