@@ -60,7 +60,13 @@ $(document).ready(function() {
           currentScreen = "";
           break;
       }
-      $("#screen").val(total);
+      if (String(total).includes(".") && total.length <= 9) {
+        $("#screen").val(total);
+      } else if (!String(total).includes(".") && total.length <= 8) {
+        $("#screen").val(total);
+      } else {
+        $("#screen").val("ERR");
+      }
       currentOperator = $(this).attr("id");
     }
   });
@@ -84,7 +90,13 @@ $(document).ready(function() {
         currentScreen = "";
         break;
     }
-    $("#screen").val(total);
+    if (String(total).includes(".") && total.length <= 9) {
+      $("#screen").val(total);
+    } else if (!String(total).includes(".") && total.length <= 8) {
+      $("#screen").val(total);
+    } else {
+      $("#screen").val("ERR");
+    }
     resetStuff();
   });
 
@@ -104,13 +116,6 @@ $(document).ready(function() {
   $("#clearall").click(() => {
     resetStuff();
     $("#screen").val(currentScreen);
-    console.log("Current Screen", currentScreen);
-    console.log("pastOperator", pastOperator);
-    console.log("currentOperator", currentOperator);
-    console.log("total", total);
-    console.log("firstOperation", firstOperation);
-    console.log("decimal", decimal);
-    console.log("limit", limit);
   });
 
   function resetStuff() {
