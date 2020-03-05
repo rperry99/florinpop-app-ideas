@@ -104,26 +104,22 @@ $(document).ready(function() {
   $("#clearall").click(() => {
     resetStuff();
     $("#screen").val(currentScreen);
+    console.log("Current Screen", currentScreen);
+    console.log("pastOperator", pastOperator);
+    console.log("currentOperator", currentOperator);
+    console.log("total", total);
+    console.log("firstOperation", firstOperation);
+    console.log("decimal", decimal);
+    console.log("limit", limit);
   });
-});
 
-function calculate(op) {
-  number = parseFloat(currentScreen);
-  switch (op) {
-    case "plus":
-      total += number;
-      break;
+  function resetStuff() {
+    currentScreen = "";
+    pastOperator = "";
+    currentOperator = "";
+    total = 0;
+    firstOperation = true;
+    decimal = false;
+    limit = 8;
   }
-
-  $("#screen").val(result);
-}
-
-function resetStuff() {
-  currentScreen = "";
-  number = 0;
-  total = "";
-  firstOperation = true;
-  pastOperator = "";
-  currentOperator = "";
-  decimal = false;
-}
+});
