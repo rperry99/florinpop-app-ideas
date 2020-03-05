@@ -4,10 +4,17 @@ $(document).ready(function() {
   let currentOperator;
   let total;
   let firstOperation = true;
+  let decimal = false;
+  let limit = 8;
 
   //Each time a number button is pressed
   $(".num").click(function() {
-    if (currentScreen.length < 8) {
+    if (decimal === true) {
+      limit = 9;
+    } else {
+      limit = 8;
+    }
+    if (currentScreen.length < limit) {
       currentScreen += $(this).html();
       $("#screen").val(currentScreen);
     }
@@ -15,15 +22,19 @@ $(document).ready(function() {
 
   //Add a decimal
   $("#point").click(() => {
-    if (!currentScreen.includes(".")) {
-      currentScreen += ".";
-      $("#screen").val(currentScreen);
+    if (decimal === false) {
+      if (currentScreen.length < 8) {
+        decimal = true;
+        currentScreen += ".";
+        $("#screen").val(currentScreen);
+      }
     }
   });
 
   // When an operator button is pressed
   $(".operator").click(function() {
     number = $("screen").val();
+    decimal = false;
     if (firstOperation) {
       currentOperator = $(this).attr("id");
       firstOperation = false;
@@ -74,12 +85,7 @@ $(document).ready(function() {
         break;
     }
     $("#screen").val(total);
-    currentScreen = "";
-    number = 0;
-    total = "";
-    firstOperation = true;
-    pastOperator = "";
-    currentOperator = "";
+    resetStuff();
   });
 
   $("#inverse").click(() => {
@@ -96,12 +102,7 @@ $(document).ready(function() {
     $("#screen").val(currentScreen);
   });
   $("#clearall").click(() => {
-    currentScreen = "";
-    number = 0;
-    total = "";
-    firstOperation = true;
-    pastOperator = "";
-    currentOperator = "";
+    resetStuff();
     $("#screen").val(currentScreen);
   });
 });
@@ -115,4 +116,14 @@ function calculate(op) {
   }
 
   $("#screen").val(result);
+}
+
+function resetStuff() {
+  currentScreen = "";
+  number = 0;
+  total = "";
+  firstOperation = true;
+  pastOperator = "";
+  currentOperator = "";
+  decimal = false;
 }
