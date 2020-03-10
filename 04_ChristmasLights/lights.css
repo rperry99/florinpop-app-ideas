@@ -97,13 +97,13 @@ body {
   animation-delay: 100ms !important;
 }
 .delay2 {
-  animation-delay: 300ms !important;
-}
-.delay3 {
   animation-delay: 500ms !important;
 }
+.delay3 {
+  animation-delay: 1000ms !important;
+}
 .delay4 {
-  animation-delay: 700ms !important;
+  animation-delay: 1500ms !important;
 }
 /* .stopBlinking {
   animation: none !important;
