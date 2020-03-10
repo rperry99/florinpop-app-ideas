@@ -11,11 +11,13 @@
 3. [jQuery Calculator](https://rperry99.github.io/florinpop-app-ideas/03_Calculator/index.html) - A pretty simple calculator. I used jQuery instead of vanilla javascript
 4. [Chistmas Lights](https://rperry99.github.io/florinpop-app-ideas/04_ChristmasLights/index.html) - A string of Christmas lights strung up on the top of the screen with some animations attached.
 
-| Name        | Description                   | Live Link                                              | GitHub Repo                                              |
-| ----------- | ----------------------------- | ------------------------------------------------------ | -------------------------------------------------------- |
-| **Bin2Dec** | A binary to decimal converter | [Live](https://rperry99.github.io/bin-to-decimal-FPI/) | [GitHub](https://github.com/rperry99/bin-to-decimal-FPI) |
-|             |                               |                                                        |                                                          |
-|             |                               |                                                        |                                                          |
+| Name | Description | Live Link | GitHub Repo |
+
+| ----------------------- | -------------------------------------------------------------------- | ------------------------------------------------------ | -------------------------------------------------------- |
+
+| Bin2Dec | A binary to decimal converter | [Live](https://rperry99.github.io/bin-to-decimal-FPI/) | [GitHub](https://github.com/rperry99/bin-to-decimal-FPI) |
+
+| Border Radius Previewer | Lets the user visually alter a border and copy the CSS for later use | [Live]() | [GitHub]()() |
 
 ---
 
